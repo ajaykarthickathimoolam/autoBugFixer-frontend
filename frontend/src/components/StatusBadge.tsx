@@ -23,11 +23,9 @@ const IN_PROGRESS: JobStatus[] = ['RECEIVED', 'ANALYZING', 'CLONING', 'FIXING', 
 export function StatusBadge({ status }: { status: JobStatus }) {
   const isActive = IN_PROGRESS.includes(status);
   return (
-      <span
-          className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold tracking-wide ${STYLES[status] ?? STYLES.RECEIVED}`}
-      >
+    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold tracking-wide ${STYLES[status] ?? STYLES.RECEIVED}`}>
       {isActive && <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-current" />}
-        {status.replace(/_/g, ' ')}
+      {status.replace(/_/g, ' ')}
     </span>
   );
 }
